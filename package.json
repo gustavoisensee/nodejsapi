@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-api",
+  "version": "1.0.0",
+  "description": "it's a simple project to test nodejs api rest.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavoisensee/nodejsapi.git"
+  },
+  "author": "Gustavo Isensee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gustavoisensee/nodejsapi/issues"
+  },
+  "homepage": "https://github.com/gustavoisensee/nodejsapi#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  }
+}
