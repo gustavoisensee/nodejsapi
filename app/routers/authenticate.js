@@ -11,6 +11,7 @@ module.exports = (router, jwt, config) => {
 				admin: true
 			};
 			
+			
 			if (user.name == 'gustavo' && user.password == '123') {
 				var token = jwt.sign(user, config.secret, {
 		        	expiresIn: config.expiresToken // expires in 24 hours

@@ -20,7 +20,10 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "jsonwebtoken": "^6.2.0",
+    "lodash": "^4.12.0",
     "morgan": "^1.7.0",
-    "spdy": "^3.3.3"
+    "spdy": "^3.3.3",
+    "tedious": "^1.14.0",
+    "tedious-promises": "^0.3.0"
   }
 }
