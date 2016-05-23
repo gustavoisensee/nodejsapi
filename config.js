@@ -10,7 +10,8 @@ module.exports = {
 		server: 'db-stigeo-dev12',
 		options: {
 			instanceName: 'devweb2012',
-			database: 'bd_nodeapi_teste'
+			database: 'bd_nodeapi_teste',
+			rowCollectionOnRequestCompletion: true
 		}
     }
 
