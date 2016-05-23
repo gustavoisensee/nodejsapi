@@ -6,7 +6,7 @@ module.exports = (router) => {
 
 	router
 		.get('/users', (req, res, next) => {
-			user.allSP().then((results) =>{
+			user.allSP().then((results) => {
 			//user.all().then(function(results) {
 				res.json(results);
 			}).fail((err) => {
@@ -14,7 +14,11 @@ module.exports = (router) => {
 			});
 		})
 		.post('/users', (req, res, next) => {
-        	res.json('router users - post new');
+        	user.create(req.query).then((results) =>{
+				res.json(results);
+			}).fail((err) => {
+				res.json(err);
+			});
         })
 		.get('/users/:id', (req, res) => {
 			user.getSP(req.params.id).then((results) => {
@@ -25,7 +29,11 @@ module.exports = (router) => {
 			});
 		})
 		.put('/users/:id', (req, res, next) => {
-        	res.json('router users - put ' + req.params.id);
+   			user.update(req.params.id, req.query).then((results) =>{
+				res.json(results);
+			}).fail((err) => {
+				res.json(err);
+			});	
         })
         .delete('/users/:id', (req, res, next) => {
         	user.delete(req.params.id).then((results) => {
