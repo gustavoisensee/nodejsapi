@@ -6,9 +6,10 @@ module.exports = (router) => {
 
 	router
 		.get('/users', (req, res, next) => {
-			user.all().then(function(results) {
+			user.allSP().then((results) =>{
+			//user.all().then(function(results) {
 				res.json(results);
-			}).fail(function(err) {
+			}).fail((err) => {
 				res.json(err);
 			});
 		})
@@ -16,9 +17,10 @@ module.exports = (router) => {
         	res.json('router users - post new');
         })
 		.get('/users/:id', (req, res) => {
-			user.get(req.params.id).then(function(results) {
+			user.getSP(req.params.id).then((results) => {
+			//user.get(req.params.id).then((results) => {
 				res.json(results);
-			}).fail(function(err) {
+			}).fail((err) => {
 				res.json(err);
 			});
 		})
@@ -26,7 +28,11 @@ module.exports = (router) => {
         	res.json('router users - put ' + req.params.id);
         })
         .delete('/users/:id', (req, res, next) => {
-        	res.json('router users - delete ' + req.params.id);
+        	user.delete(req.params.id).then((results) => {
+				res.json(results);
+			}).fail((err) => {
+				res.json(err);
+			});
         });
 
 }
