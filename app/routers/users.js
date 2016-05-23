@@ -6,22 +6,21 @@ module.exports = (router) => {
 
 	router
 		.get('/users', (req, res, next) => {
-			//user.all(res);
-
-			user.all2().then(function(results) {
-				console.log(results);
+			user.all().then(function(results) {
 				res.json(results);
-			    // do something with the results
 			}).fail(function(err) {
-				// do something with the failure
+				res.json(err);
 			});
 		})
-
 		.post('/users', (req, res, next) => {
         	res.json('router users - post new');
         })
 		.get('/users/:id', (req, res) => {
-			res.json('router users - get ' + req.params.id);
+			user.get(req.params.id).then(function(results) {
+				res.json(results);
+			}).fail(function(err) {
+				res.json(err);
+			});
 		})
 		.put('/users/:id', (req, res, next) => {
         	res.json('router users - put ' + req.params.id);

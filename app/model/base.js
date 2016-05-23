@@ -1,26 +1,16 @@
 'use strict';
 
-const Database   = require('../../config').database;
-const Connection = require('tedious').Connection;
-const Request    = require('tedious').Request;
-const TYPES      = require('tedious').TYPES;
+const config = require('../../config').database;
+const TYPES = require('tedious').TYPES;
 
-const connected = (err, callback) => {
-	if (err) {
-		console.log('Error connecting to the database: ' + err)	
-	} else {
-		callback();
-	}
-};
+const tp = require('tedious-promises');
+tp.setConnectionConfig(config); // global scope 
 
-const end = () => {
-	console.log('Connection closed');
-};
+const _ = require('lodash');
+tp.setDefaultColumnRenamer(_.camelCase); // global scope 
 
 module.exports = {
-	Database: Database,
-	Connection: Connection,
-	Request: Request,
-	connected: connected,
-	end: end
+	config: config,
+	TYPES: TYPES,
+	tp: tp
 }

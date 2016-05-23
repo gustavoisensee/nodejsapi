@@ -7,10 +7,10 @@ module.exports = (router, jwt, config) => {
 
 		if (token) {
 			// check token and secret
-			jwt.verify(token, config.secret, function(err, decoded) {      
+			jwt.verify(token, config.secret, function(err, decoded) {   
 				if (err) {
 					//there is a problem
-					return res.json({ success: false, message: 'Failed to authenticate token.' });    
+					res.json({ success: false, message: 'Failed to authenticate token.' });    
 				} else {
 					//there is NOT problem
 					req.decoded = decoded;    
@@ -26,8 +26,6 @@ module.exports = (router, jwt, config) => {
 			});
 
 		}
-
-	    next();
 	});
 
 }
