@@ -1,12 +1,10 @@
 'use strict';
 
-const user = {
+module.exports = {
 	get: (user) => {
 		return {
 			id: user.id,
 			name: user.name
 		};
-	};
+	}
 }
-
-module.exports = user;
