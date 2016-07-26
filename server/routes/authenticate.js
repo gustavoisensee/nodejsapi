@@ -35,6 +35,6 @@ module.exports = (router, jwt, config) => {
 					return res.json({ success: false, message: message.fail + err });
 				});
 
-        });
+    });
 
 }

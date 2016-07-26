@@ -19,11 +19,15 @@ module.exports = (router, jwt, config) => {
 			});
 
 		} else {
+
+			//temp
+			next();
+
 			// no token
-			return res.status(403).json({ 
-			    success: false, 
-			    message: 'No token provided.' 
-			});
+			// return res.status(403).json({ 
+			//     success: false, 
+			//     message: 'No token provided.' 
+			// });
 
 		}
 	});

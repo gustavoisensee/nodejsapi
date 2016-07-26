@@ -13,6 +13,6 @@ module.exports = {
 			database: 'bd_nodeapi_teste',
 			rowCollectionOnRequestCompletion: true
 		}
-    }
+  }
 
 };

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const fs         = require('fs');
 //const morgan     = require('morgan');
 const port       = (process.env.PORT || 3000);
-const router     = require('./app/routers/start');
+const router     = require('./server/routes/start');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -16,12 +16,12 @@ app.use(bodyParser.json());
 //app.use(morgan('dev')); 
 
 // Define routers
-app.use('/api', router);
+app.use(router);
 
 // SSL options
 var options = {
-    key: fs.readFileSync('./app/security/localhost.key'),
-    cert: fs.readFileSync('./app/security/localhost.cert')
+    key: fs.readFileSync('./server/security/localhost.key'),
+    cert: fs.readFileSync('./server/security/localhost.cert')
 };
 
 spdy.createServer(options, app).listen(port);
